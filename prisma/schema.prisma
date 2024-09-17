@@ -46,4 +46,19 @@ model Product {
   category_id String
   items Item[] 
 
+  @@map("products")
+
+}
+
+model Item {
+  id        String  @id @default(uuid())
+  amount    Int
+
+  created_at DateTime? @default(now())
+  update_at  DateTime? @default(now())
+
+  product    Product @relation(fields: [product_id], references: [id])
+  product_id String
+
+  @@map("items")
 }
