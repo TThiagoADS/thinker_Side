@@ -1,43 +1,33 @@
-import { PrismaClient } from "@prisma/client";
-import {hash} from "bcryptjs";
-import {UserRequest} from "../../models/interfaces/User/UserRequest"
+import prismaClient from '../../prisma';
+import { hash } from "bcryptjs";
+import { UserRequest } from "../../models/interfaces/User/UserRequest"
 
-class CreateUserService{
+class CreateUserService {
 
     async execute({name, email, password}: UserRequest) {
         if(!name) {throw new Error("O campo nome é obrigatorio") }
         if(!email) {throw new Error("O campo email é obrigatorio") }
         if(!password) {throw new Error("A senha não pode ser vazia") }
 
-        const userAlreadyExists = await PrismaClient.user.findFirst({ //verifica se o usuario ja possui login
-            where : {
-                email:email
-            }
-        })
+        // Encriptando a nossa senha do usuário
+        const passwordHash = await hash(password, 8);
 
-        if (userAlreadyExists){
-            throw new Error("Email alredy exists!");
-        }
-        //Crypto password user.
-        const passwordHash = await hash(password,8);
-
-        const user = PrismaClient.user.create({
+        // Criando nosso usuário
+        const user = prismaClient.user.create({
             data: {
                 name: name,
-                email:email,
-                password:passwordHash
+                email: email,
+                password: passwordHash
             },
             select: {
-                id:true,
-                name:true,
-                email:true
+                id: true,
+                name: true,
+                email: true
             }
         })
 
         return user;
-
     }
-
 }
 
-export {CreateUserService};
+export { CreateUserService }
