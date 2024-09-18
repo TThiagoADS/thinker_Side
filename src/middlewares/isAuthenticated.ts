@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { Payloads } from "../models/interfaces/User/auth/Payloads";
+import { Payloads } from "../models/interfaces/Payloads";
 import { verify } from "jsonwebtoken";
 
 export function isAuthenticated(
