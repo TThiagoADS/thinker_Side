@@ -23,5 +23,6 @@ router.delete("/user/remove", new RemoveUserController().handle) //remove o usus
 router.post("/category", new CreateCategoryController().handle) //cria uma categoria
 router.put("/category/edit", new EditCategoryController().handle) //edita uma categoria
 router.get("/category/all", new ListCategoryController().handle) //busca todas as categorias
+router.delete("/category/delete", new RemoveUserController().handle) //deleta a categoria
 
 export {router};
