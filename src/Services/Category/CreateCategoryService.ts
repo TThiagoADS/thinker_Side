@@ -1,5 +1,5 @@
-import prismaClient from "../../../prisma";
-import { CategoryRequest } from "../../../models/Category/CategoryRequest";
+import prismaClient from "../../prisma";
+import { CategoryRequest } from "../../models/Category/CategoryRequest";
 
 class CreateCategoryService {
 

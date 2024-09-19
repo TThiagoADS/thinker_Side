@@ -1,10 +1,12 @@
-import {Router, Request, Response, request } from "express"
+import {Router, Request, Response} from "express"
 import { CreateUserController } from "./Controllers/User/CreateUserController";
 import { AuthUserController } from "./Controllers/User/AuthUserController";
 import { isAuthenticated } from "./middlewares/isAuthenticated";
 import { DetailUserController } from "./Controllers/User/DetailUserController";
 import { RemoveUserController } from "./Controllers/User/RemoveUserController";
 import { CreateCategoryController } from "./Controllers/Category/CreateCategoryController";
+import { EditCategoryController } from "./Controllers/Category/EditCategoryController";
+import { ListCategoryController } from "./Controllers/Category/ListCategoryController";
 
 const router = Router();
 router.get("/test",(request: Request, response:Response) => {
@@ -19,5 +21,7 @@ router.delete("/user/remove", new RemoveUserController().handle) //remove o usus
 
 //category routes
 router.post("/category", new CreateCategoryController().handle) //cria uma categoria
+router.put("/category/edit", new EditCategoryController().handle) //edita uma categoria
+router.get("/category/all", new ListCategoryController().handle) //busca todas as categorias
 
 export {router};
