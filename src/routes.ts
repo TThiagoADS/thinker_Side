@@ -12,6 +12,7 @@ import uploadConfig from "./Config/multer"
 import { CreateProductController } from "./Controllers/Product/CreateProductController";
 import {EditProductController} from "./Controllers/Product/EditProductController"
 import { ListProductByCategoryController } from "./Controllers/Product/ListProductByCategoryController";
+import { ListProductsController } from "./Controllers/Product/ListProductsController";
 
 const router = Router();
 const upload = multer(uploadConfig.upload("./tmp")); //pasta para imagens
@@ -34,6 +35,7 @@ router.delete("/category/delete", new RemoveUserController().handle) //deleta a 
 //product routes
 router.post("/product", upload.single("file"),new CreateProductController().handle)
 router.put("/product/edit",upload.single("file"), new EditProductController().handle)
-router.get("/products", new ListProductByCategoryController().handle)
+router.get("/product", new ListProductByCategoryController().handle)
+router.get("/products", new ListProductsController().handle)
 
 export {router};
