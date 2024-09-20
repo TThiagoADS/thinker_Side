@@ -33,8 +33,8 @@ Utilizando o GitHub e alguns comandos para realizar a instalação do projeto.
 2 - Utilize o comando cd no terminal para acessar a pasta do projeto.
 "cd/thinker_Side"
 
-3 - No terminal iremos instalar as depencias do projeto utilizando o Yarn
-
+3 - Importe o arquivo das configurações .env.
+No terminal iremos instalar as depencias do projeto utilizando o Yarn
 "yarn install"
 
 4 - Após todas as dependencias do projeto serem devidamente instaladas iremos rodar a aplicação utilizando:
@@ -49,12 +49,13 @@ O comando "yarn test" executa um teste ao qual cria um produto completo e verifi
 --End points e parametros--
 
 Para acessar a interface do Swagger basta utilizar o "yarn start" para iniciar a Api em seguida no navegador utilizar o endereço:
-"(http://localhost:3333/api-docs)"
+"(http://localhost:3333/api-docs)".
+
+Tambem é possivel hitar os endpoints através do Postman.
 
 Antes de realizar o teste é necessario gerar um token utilizando o end point /v1/user com metodo post com parametros de nome, email e senha.
 Após realizar o cadastro é necessario tambem receber o token utilizando o end point v1/session com metodo post passando o email e senha,
 após isso é necassario colocar na parte superior esquerda no local "authorized", após isso os endpoints serão autorizados.
-
 
 
 
