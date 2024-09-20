@@ -10,9 +10,10 @@ import { ListCategoryController } from "./Controllers/Category/ListCategoryContr
 import multer from "multer";
 import uploadConfig from "./Config/multer"
 import { CreateProductController } from "./Controllers/Product/CreateProductController";
-import {EditProductController} from "./Controllers/Product/EditProductController"
+import { EditProductController } from "./Controllers/Product/EditProductController"
 import { ListProductByCategoryController } from "./Controllers/Product/ListProductByCategoryController";
 import { ListProductsController } from "./Controllers/Product/ListProductsController";
+import { RemoveProductController } from "./Controllers/Product/RemoveProductController";
 
 const router = Router();
 const upload = multer(uploadConfig.upload("./tmp")); //pasta para imagens
@@ -37,5 +38,6 @@ router.post("/product", upload.single("file"),new CreateProductController().hand
 router.put("/product/edit",upload.single("file"), new EditProductController().handle)
 router.get("/product", new ListProductByCategoryController().handle)
 router.get("/products", new ListProductsController().handle)
+router.delete("/product", new RemoveProductController().handle)
 
 export {router};
