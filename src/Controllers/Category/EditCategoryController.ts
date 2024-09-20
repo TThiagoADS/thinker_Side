@@ -2,21 +2,14 @@ import { Request, Response } from "express";
 import { EditCategoryService } from "../../Services/Category/EditCategoryService";
 
 class EditCategoryController {
-    async handle(req: Request, res: Response) {
-        const { name, category_id } = req.body;
-        if (!name || !category_id) {
-            return res.status(400).json({ error: "Invalid name or category_id" });
-        }
 
+    async handle(request: Request, response: Response) {
+        const { name } = request.body;
+        const category_id = request.query.category_id as string;
         const editCategoryService = new EditCategoryService();
-
-        try {
-            const categoryEdited = await editCategoryService.execute({ name, category_id });
-            return res.json(categoryEdited);
-        } catch (error) {
-            return res.status(400).json({ error:"Error" });
-        }
+        const categoryEdited = editCategoryService.execute({ name, category_id });
+        return response.json(categoryEdited);
     }
 }
 
-export { EditCategoryController };
+export { EditCategoryController }

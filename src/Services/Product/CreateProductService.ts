@@ -1,8 +1,10 @@
 import prismaClient from "../../prisma"
 import {ProductRequest} from "../../models/Product/ProductRequest"
 
-class CreateProductService{
-    async execute({name, price, description,banner, category_id,amount}:ProductRequest){
+class CreateProductService {
+
+    async execute({ name, price, description, banner, category_id, amount }: ProductRequest) {
+
         const product = await prismaClient.product.create({
             data: {
                 name: name,
@@ -12,10 +14,9 @@ class CreateProductService{
                 category_id: category_id,
                 amount: +amount
             },
-        })
+        });
         return product;
     }
-
 }
 
-export {CreateProductService}
+export { CreateProductService }
