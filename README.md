@@ -1,7 +1,7 @@
---Projeto: Cadrastro de produtos - Thinker Side--
+--Projeto: Cadastro de produtos - Thinker Side--
 
 Este projeto é uma API RESTful desenvolvida com Node.js e TypeScript, que permite a gestão de um sistema de cadastro de produtos.
-Alem do cadastro de produtos foram implementadas cadastro de usuario e categorias e seus respectivos CRUD's.
+Alem do cadastro de produtos foram implementadas cadastro de usuario e categorias e seus respectivos CRUD's e um Payload.
 A aplicação utiliza o framework Express para a criação das rotas e integra o Prisma Client para a comunicação com o banco de dados.
 O sistema inclui autenticação baseada em JWT para garantir a segurança das rotas protegidas.
 Teste automatizados utilizando o framework jester.
@@ -12,6 +12,7 @@ Autenticação JWT: Implementação de autenticação segura com tokens JWT, pro
 CRUD de Produtos: Operações de criação, leitura, atualização e exclusão de produtos no banco de dados.
 CRUD de Usuario : Criação de usuarios, edição, exclusão e a geração de Token para autenticação.
 CRUD de Categorias: Criação de categorias, edição, atualização e exclusão de categorias.
+Funcionalidade de payload.
 Prisma Client: Interações com o banco de dados de forma eficiente, utilizando o ORM Prisma.
 Testes com jester: Utilizando a ferramenta foram criados testes.
 Documentação com Swagger: A API é documentada e acessível via interface Swagger, permitindo testes diretos dos endpoints.
